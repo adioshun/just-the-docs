@@ -53,7 +53,8 @@
         {% endunless %}
         <div class="page-content">
           {{ content }}
-
+          <b>TEST</b>
+          {% include disqus.html %}
           {% if page.has_children == true %}
           <hr>
           <h2 class="text-delta">Table of contents</h2>
