@@ -5,77 +5,48 @@ nav_order: 1
 permalink: /
 ---
 
+# PCL 정리 노트
 
-# Focus on writing good documentation
-{: .fs-9 }
+그동안 살펴 보았던 PCL 사용 및 활용에 대하여 정리 하고자 합니다.
 
-Just the Docs gives your documentation a jumpstart with a responsive Jekyll theme that is easily customizable and hosted on GitHub pages.
-{: .fs-6 .fw-300 }
+PCL은 `Point cloud Library`의 약어로 Lidar나 RGB-D센서 등으로 수집되는 점군(Point cloud)를 처리 하기 위한 라이브러리 입니다.
 
-[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/pmarsceill/just-the-docs){: .btn .fs-5 }
+Point cloud를 처리를 위한 라이브러리로는 PCL, PCL-python, Open3D, pyPCD, Laspy, PCLpy 등이 있습니다.
 
----
+여기서는 PCL-Python과 일부 Open3D를 활용합니다.
 
-## Getting started
-### Dependencies
-Just the Docs is built for [Jekyll](https://jekyllrb.com), a static site generator. View the [quick start guide](https://jekyllrb.com/docs/quickstart/) for more information. Just the Docs requires no special Jekyll plugins and can run on GitHub Pages standard Jekyll compiler.
+## Environment
 
-### Quick start: Use as a GitHub Pages remote theme
-1. Add Just the Docs to your Jekyll site's `_config.yml` as a [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/)
-```yaml
-remote_theme: pmarsceill/just-the-docs
-```
-<small>You must have GitHub pages enabled on your repo, one or more markdown files, and a `_config.yml` file. [See an example repository](https://github.com/pmarsceill/jtd-remote)</small>
+- 언어: python2
+- 라이브러리 : PCL-Python (PCL의 python버젼인)
+- OS : Ubuntu 16.4 with ROS
+- 센서 : Velodyne Puck (16ch Lidar)
 
-### Local installation: Use the gem-based theme
-1. Install the Ruby Gem
-```bash
-$ gem install just-the-docs
-```
-```yaml
-# .. or add it to your your Jekyll site’s Gemfile
-gem "just-the-docs"
-```
-2. Add Just the Docs to your Jekyll site’s `_config.yml`
-```yaml
-theme: "just-the-docs"
-```
-3. _Optional:_ Initialize search data (creates `search-data.json`)
-```bash
-$ bundle exec just-the-docs rake search:init
-```
-3. Run you local Jekyll server
-```bash
-$ jekyll serve
-```
-```bash
-# .. or if you're using a Gemfile (bundler)
-$ bundle exec jekyll serve
-```
-4. Point your web browser to [http://localhost:4000](http://localhost:4000)
+> [PCL-To-All Docker](https://hub.docker.com/r/adioshun/pcl_to_all/) : Ubuntu 16, ROS, PCL-python, Open3D, Jupyter, etc. 설치
 
-### Configure Just the Docs
-- [See configuration options]({{ site.baseurl }}{% link docs/configuration.md %})
+## Mini Project
+
+진행은 Lidar로 수집되는 점군 데이터에서 사람을 추출 하는 3D People Detection 구현을 목표로 하고 있습니다.
+
+![](lobby_demo.gif)
+
+## Release Note
+
+2018.11.22 :
 
 
----
-
-## About the project
-
-Just the Docs is &copy; 2017 by [Patrick Marsceill](http://patrickmarsceill.com).
-
-### License
-
-Just the Docs is distributed by an [MIT license](https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt).
-
-### Contributing
-
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. Read more about becoming a contributor in [our GitHub repo](https://github.com/pmarsceill/just-the-docs#contributing).
-
-
-### Code of Conduct
-
-Just the Docs is committed to fostering a welcoming community.
-
-[View our Code of Conduct](https://github.com/pmarsceill/just-the-docs/tree/master/CODE_OF_CONDUCT.md) on our GitHub repository.
+|            | 초급                | 중급                   | 고급               |
+|:----------:|---------------------|------------------------|--------------------|
+| 2018.11.22 | 0.1 ~~Home/PCL~~    |                        |                    |
+| 2018.11.22 | 0.2 환경구축        |                        |                    |
+| 2018.11.23 | 1.1 Down Sampling   |                        |                    |
+| 2018.11.23 | 1.2 ROI Filtering   |                        |                    |
+| 2018.11.29 | 1.3 Noise Filtering |                        |                    |
+| 2018.11.29 | 1.4 Plane Removal   |                        |                    |
+| 2018.11.30 | 1.5 Clustering      |                        |                    |
+| 2018.12.03 |                     | 2.1 Background Removal |                    |
+| 2018.12.04 |                     | 2.2 Clustering         |                    |
+| 2018.12.05 |                     | 2.3 Tracking           |                    |
+| 2019.03.01 |                     |                        | 3.1 Clustering     |
+| 2019.04.01 |                     |                        | 3.2 Classification |
+| 2019.05.01 |                     |                        | 3.3 Tracking       |
